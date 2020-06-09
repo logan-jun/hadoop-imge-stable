@@ -1,7 +1,7 @@
 FROM java:8-jre
 
 # Add native libs
-ARG HADOOP_VERSION=2.9.0
+ARG HADOOP_VERSION=2.7.3
 ADD hadoop-${HADOOP_VERSION}.tar.gz /opt
 ADD hadoop-native-${HADOOP_VERSION}.tar /opt/hadoop-${HADOOP_VERSION}/lib/native
 
