@@ -30,8 +30,8 @@ RUN \
   ./configure && \
   make -j$(nproc) && make install
 
-ENV LD_LIBRARY_PATH /usr/local/lib
-ENV export LD_RUN_PATH /usr/local/lib
+ENV LD_LIBRARY_PATH /opt/lib
+ENV export LD_RUN_PATH /opt/lib
 
 # build native libs
 RUN \

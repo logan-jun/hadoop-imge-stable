@@ -1,21 +1,21 @@
 FROM java:8-jre
 
 # Add native libs
-ARG HADOOP_VERSION=
-ADD hadoop-${HADOOP_VERSION}.tar.gz /usr/local
-ADD hadoop-native-${HADOOP_VERSION}.tar /usr/local/hadoop-${HADOOP_VERSION}/lib/native
+ARG HADOOP_VERSION=2.7
+ADD hadoop-${HADOOP_VERSION}.tar.gz /opt
+ADD hadoop-native-${HADOOP_VERSION}.tar /opt/hadoop-${HADOOP_VERSION}/lib/native
 
-ENV HADOOP_PREFIX=/usr/local/hadoop \
-    HADOOP_COMMON_HOME=/usr/local/hadoop \
-    HADOOP_HDFS_HOME=/usr/local/hadoop \
-    HADOOP_MAPRED_HOME=/usr/local/hadoop \
-    HADOOP_YARN_HOME=/usr/local/hadoop \
-    HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop \
-    YARN_CONF_DIR=/usr/local/hadoop/etc/hadoop \
-    PATH=${PATH}:/usr/local/hadoop/bin
+ENV HADOOP_PREFIX=/opt/hadoop \
+    HADOOP_COMMON_HOME=/opt/hadoop \
+    HADOOP_HDFS_HOME=/opt/hadoop \
+    HADOOP_MAPRED_HOME=/opt/hadoop \
+    HADOOP_YARN_HOME=/opt/hadoop \
+    HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop \
+    YARN_CONF_DIR=/opt/hadoop/etc/hadoop \
+    PATH=${PATH}:/opt/hadoop/bin
 
 RUN \
-  cd /usr/local && ln -s ./hadoop-${HADOOP_VERSION} hadoop && \
+  cd /opt && ln -s ./hadoop-${HADOOP_VERSION} hadoop && \
   rm -f ${HADOOP_PREFIX}/logs/*
 
 WORKDIR $HADOOP_PREFIX

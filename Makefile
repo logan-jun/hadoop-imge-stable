@@ -7,7 +7,7 @@ HADOOP_27_VERSION = 2.7.3
 PROTOBUF_VERSION = 2.5.0
 
 DOCKER = docker
-DOCKER_REPO = danisla/hadoop
+DOCKER_REPO = hansl2004/yarn-image
 
 all: build
 
